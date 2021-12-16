@@ -2,6 +2,7 @@ package training;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import java.io.*;
+
 public class CarTests {
 	@Test
 	public void canBuildCar() {

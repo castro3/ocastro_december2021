@@ -1,0 +1,59 @@
+Sakila Database
+Write a SQL statement for each of the following. 
+
+1. Get 10 cities in descending alphabetical order.
+START TRANSACTION;
+SELECT city FROM (SELECT city FROM sakila.city ORDER BY RAND() LIMIT 10) cities ORDER BY city DESC;
+COMMIT;
+
+2. Get all films with "airplane" in the title.
+START TRANSACTION;
+SELECT * FROM sakila.film WHERE title LIKE '%airplane%';
+COMMIT;
+
+3. Get the highest payment amount.
+START TRANSACTION;
+SELECT MAX(amount) FROM sakila.payment;
+COMMIT;
+
+4. Get the number of records in the customer table for store id #1.
+START TRANSACTION;
+SELECT count(*) FROM sakila.customer WHERE store_id=1;
+COMMIT;
+
+5. Get all payment records for customer with email address "NANCY.THOMAS@sakilacustomer.org"
+START TRANSACTION;
+SELECT * FROM sakila.payment 
+INNER JOIN sakila.customer ON customer.customer_id = payment.customer_id 
+WHERE sakila.customer.email = "NANCY.THOMAS@sakilacustomer.org";
+COMMIT;
+
+6. Use a View to get the film info for actor Bob Fawcett.
+START TRANSACTION;
+SELECT film_info FROM sakila.actor_info WHERE first_name = "Bob" AND last_name = "Fawcett";
+COMMIT;
+
+7. Use a Stored Procedure to get the 4 inventory ids for the film "Alien Center" at Store #2.
+ START TRANSACTION;
+CALL film_in_stock((SELECT film_id FROM film WHERE title="Alien Center"),
+ (SELECT store_id FROM store WHERE store_id=2), @inventory_ids);
+ COMMIT;
+
+8. Insert a new store. Ensure that you use TRANSACTION. (This one is possible but it's tough! Pay attention to constraints and the order that you are inserting data.) 
+START TRANSACTION;
+INSERT INTO sakila.staff(first_name, last_name, address_id, store_id, username) 
+VALUES("Saul", "Dominguez", 5, 2, "salguez");
+INSERT INTO sakila.store(manager_staff_id, address_id) VALUES((SELECT staff_id FROM sakila.staff WHERE username="salguez"),5);
+UPDATE sakila.staff SET store_id=5 WHERE staff_id=7;
+COMMIT;
+
+9. Update the timestamp to the current date/time for the new store you entered in the previous question. 
+START TRANSACTION;
+UPDATE sakila.store SET last_update=NOW() WHERE store_id=5;
+COMMIT;
+
+10. Delete the new store. 
+START TRANSACTION;
+UPDATE sakila.staff SET store_id=2 WHERE store_id=5;
+DELETE FROM sakila.store WHERE store_id=5;
+COMMIT;
