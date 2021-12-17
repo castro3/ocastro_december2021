@@ -1,7 +1,6 @@
 package training;
 
-public class Car{
-	private int odometer;
+public class Car extends Vehicle{
 	public String model;
 	public IEngine engine;
 	
@@ -13,8 +12,10 @@ public class Car{
 	public void start() {
 		engine.Start();
 	}
-	
-	public int getOdometer() {
-		return odometer;
+
+	@Override
+	public void drive() {
+		System.out.println("Driving Car...");
+		increaseOdometer();
 	}
 }

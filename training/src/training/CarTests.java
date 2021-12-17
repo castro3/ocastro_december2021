@@ -12,5 +12,9 @@ public class CarTests {
 		System.setOut(new PrintStream(output));
 		corvette.start();
 		assertEquals("Engine Started!", output.toString().trim());
+		
+		// Drive car Test
+		corvette.drive();
+		assertTrue(corvette.getOdometer()>0);
 	}
 }
