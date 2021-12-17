@@ -13,7 +13,6 @@ public class Car extends Vehicle{
 		engine.Start();
 	}
 
-	@Override
 	public void drive() {
 		System.out.println("Driving Car...");
 		increaseOdometer();
