@@ -17,4 +17,13 @@ public class CarTests {
 		assertTrue(bmw.getOdometer()>0);
 		assertTrue(bmw != null);
 	}
+	
+	@Test
+	public void CanBuildConvertible() {
+		ConvertibleCar corvette = new ConvertibleCar("Corvette");
+		corvette.start();
+		assertTrue(corvette != null);
+		corvette.drive();
+		assertTrue(corvette.getOdometer() > 0);
+	}
 }
