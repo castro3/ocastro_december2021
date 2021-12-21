@@ -1,0 +1,6 @@
+Bug Report #3
+
+Bug: Subscribing to the newsletter doesn't generate an email.
+Steps to the bug: subscribe to the newsletter on the bottom of page.
+Expected results: get an email to confirm your subscription.
+Actual results: get a message on website but not on email.
