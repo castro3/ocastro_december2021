@@ -1,33 +1,64 @@
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Stream;
 
 import org.testng.annotations.Test;
 
-public class JavaIOTest {
-  @Test
-  public void getBrowserType() throws IOException {
-	  InputStream inputStream = null;
-	  try {
-		  String fileName = "config.properties";
-		  inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-		  Scanner scanner = new Scanner(inputStream);
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 
-			if(inputStream == null) {
-				scanner.close();
-				throw new RuntimeException(fileName + " was not found in the Resources folder.");
+import framework.ConfigurationProvider;
+
+public class JavaIOTest {
+	@Test
+	public void canGtBrowserType() {
+		ConfigurationProvider provider = new ConfigurationProvider();
+		try {
+			HashMap<String, String> properties = provider.getPropertiesFromResourceFile("config.properties");
+			if(properties.containsKey("BrowserType")) {
+				System.out.println(properties.get("BrowserType"));
 			}
 			
-			while(scanner.hasNextLine()) {
-				String value = scanner.nextLine();
-				if(value.equals("BrowserType=chrome")) {
-					System.out.println(value.substring(value.lastIndexOf("=")+1));
-				}
+			assertEquals(properties.get("BrowserType"), "chrome");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	  
+  @Test
+  public void canGetMakesAndModels() {
+	  try {
+		  HashMap<String, ArrayList<String>> basses = new HashMap<String, ArrayList<String>>();
+		  CSVReader bassesFile = new CSVReader(new FileReader(getClass().getResource("basses.csv").getPath()));
+		  bassesFile.skip(1);
+		  String[] row = null;
+		  ArrayList<String> models = new ArrayList<String>();
+		  
+		  while((row = bassesFile.readNext()) != null) {
+			  if(!basses.containsKey(row[0])) {
+				  basses.put(row[0], new ArrayList<String>());
+			  }
+			  basses.get(row[0]).add(row[1]);
+		  }
+		  
+		  for (String i : basses.keySet()) {
+			  System.out.println("Make: " + i + " Models: " + basses.get(i));
 			}
-			scanner.close();
-		}
-		finally {
-			inputStream.close();
-		}
-  }
+		  
+		  assertTrue(basses.get("Warwick") != null);
+		  assertTrue(basses.containsKey("Fender"));
+	  } catch (CsvValidationException e) {
+		  e.printStackTrace();
+	  } catch (IOException e) {
+		  e.printStackTrace();
+	  }
+  	}
 }
