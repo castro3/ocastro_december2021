@@ -14,4 +14,31 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/training/bug1Proof.JPG</name>
+			<type>1</type>
+			<location>C:/Users/Oscar/Desktop/bugInfo/bug1Proof.JPG</location>
+		</link>
+		<link>
+			<name>src/training/bug2Ads.JPG</name>
+			<type>1</type>
+			<location>C:/Users/Oscar/Desktop/bugInfo/ads.JPG</location>
+		</link>
+		<link>
+			<name>src/training/bug2Proof.JPG</name>
+			<type>1</type>
+			<location>C:/Users/Oscar/Desktop/bugInfo/differentSite.JPG</location>
+		</link>
+		<link>
+			<name>src/training/bug3Proof.JPG</name>
+			<type>1</type>
+			<location>C:/Users/Oscar/Desktop/bugInfo/email.JPG</location>
+		</link>
+		<link>
+			<name>src/training/bug3Subscription.JPG</name>
+			<type>1</type>
+			<location>C:/Users/Oscar/Desktop/bugInfo/subscribed.JPG</location>
+		</link>
+	</linkedResources>
 </projectDescription>

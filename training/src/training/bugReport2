@@ -1,0 +1,6 @@
+Bug Report #2
+
+Bug: Ads don't redirect to something inside the website.
+Steps to the bug: Clicking on any ad found on the website.
+Expected results: Redirect to the page whatever the ad was stating.
+Actual results: Redirects to another website.

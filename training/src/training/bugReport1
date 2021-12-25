@@ -1,0 +1,6 @@
+Bug Report #1
+
+Bug: "Get savings now" button doesn't work.
+Steps to the bug: Clicking on the button will redirect to the current page the user is at.
+Expected results: Redirect to the page with all the savings.
+Actual results: Redirects to current page.
