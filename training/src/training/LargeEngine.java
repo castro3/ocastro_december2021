@@ -1,10 +1,18 @@
 package training;
 
 public class LargeEngine implements IEngine {
-	int cylinderCount;
+	private int cylinderCount;
+	
+	public LargeEngine() {
+		this.cylinderCount = 8;
+	}
 	
 	@Override
 	public void Start() {
-		System.out.println("Engine Started!");
+		System.out.println("Large Engine Started!");
+	}
+
+	public int getCylinderCount() {
+		return cylinderCount;
 	}
 }

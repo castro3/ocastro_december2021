@@ -1,19 +1,20 @@
 package training;
-public class Car {
-	private int odometer;
+
+public class Car extends Vehicle{
 	public String model;
 	public IEngine engine;
 	
 	public Car(String model) {
-		engine = new LargeEngine();
+		this.engine = new LargeEngine();
 		this.model = model;
 	}
 	
 	public void start() {
 		engine.Start();
 	}
-	
-	public int getOdometer() {
-		return odometer;
+
+	public void drive() {
+		System.out.println("Driving Car...");
+		increaseOdometer();
 	}
 }

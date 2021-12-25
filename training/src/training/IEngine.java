@@ -1,5 +1,6 @@
 package training;
 
-interface IEngine {
+public interface IEngine {
 	public void Start();
+	public int getCylinderCount();
 }
