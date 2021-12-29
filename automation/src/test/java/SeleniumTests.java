@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class SeleniumTests {
 	private ChromeDriver driver;
-	private String url = "https://www.selenium.dev";
+	private String url = "https://www.selenium.dev/";
 	
   @Test
   public void canLaunchWebDriver() {
