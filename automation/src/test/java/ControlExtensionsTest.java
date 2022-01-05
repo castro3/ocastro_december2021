@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,6 +28,15 @@ public class ControlExtensionsTest extends TestBase{
 	  Assert.assertEquals(selection, "No");
 	  System.out.println(selection);
 	  
+  }
+  
+  @Test
+  public void canCreateHyperLink() {
+	  final String url = "https://demoqa.com/links";
+	  getDriver().navigate().to(url);
+	  Hyperlink hyperlink = new Hyperlink(getDriver());
+	  hyperlink.click("created");
+	  Assert.assertTrue(getDriver().findElement(By.id("created")).isDisplayed());
   }
   
   @BeforeMethod
