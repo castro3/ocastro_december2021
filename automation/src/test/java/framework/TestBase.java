@@ -32,7 +32,7 @@ public abstract class TestBase {
 
 		this.driver = new ChromeDriver();	
 		
-		long pageLoadTimeout = 5;
+		long pageLoadTimeout = 3;
 		this.driver.manage().timeouts().implicitlyWait(pageLoadTimeout , TimeUnit.SECONDS);
 	}
 }

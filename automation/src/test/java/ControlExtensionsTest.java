@@ -39,6 +39,34 @@ public class ControlExtensionsTest extends TestBase{
 	  Assert.assertTrue(getDriver().findElement(By.id("created")).isDisplayed());
   }
   
+  @Test
+  public void canCreateSlider() {
+	  final String url = "https://demoqa.com/slider";
+	  getDriver().navigate().to(url);
+	  Slider slider = new Slider(getDriver());
+	  slider.setValue(80);
+	  Assert.assertEquals(slider.getValue(), "80");
+	  slider.setValue(17);
+	  Assert.assertEquals(slider.getValue(), "17");
+	  slider.setValue(0);
+	  Assert.assertEquals(slider.getValue(), "0");
+	  slider.setValue(100);
+	  Assert.assertEquals(slider.getValue(), "100");
+
+  }
+  
+  @Test
+  public void canCreateOldStyleDropDownList() {
+	  final String url = "https://demoqa.com/select-menu";
+	  getDriver().navigate().to(url);
+	  DropdownList ddl = new DropdownList(getDriver());
+	  ddl.setValue("Indigo");
+	  String[] options = ddl.getOptions();
+	  for(int i=0; i < options.length; i++) {
+		  Assert.assertEquals(options[i], ddl.getValue());
+	  }
+  }
+  
   @BeforeMethod
 	public void setup() {
 		super.setup();
