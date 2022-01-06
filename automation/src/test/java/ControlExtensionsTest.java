@@ -36,7 +36,7 @@ public class ControlExtensionsTest extends TestBase{
 	  getDriver().navigate().to(url);
 	  Hyperlink hyperlink = new Hyperlink(getDriver());
 	  hyperlink.click("created");
-	  Assert.assertTrue(getDriver().findElement(By.id("created")).isDisplayed());
+	  Assert.assertEquals(getDriver().findElement(By.id("linkResponse")).getText(), "Link has responded with staus 201 and status text Created");
   }
   
   @Test
@@ -44,13 +44,13 @@ public class ControlExtensionsTest extends TestBase{
 	  final String url = "https://demoqa.com/slider";
 	  getDriver().navigate().to(url);
 	  Slider slider = new Slider(getDriver());
-	  slider.setValue(80);
+	  slider.setValue("80");
 	  Assert.assertEquals(slider.getValue(), "80");
-	  slider.setValue(17);
+	  slider.setValue("17");
 	  Assert.assertEquals(slider.getValue(), "17");
-	  slider.setValue(0);
+	  slider.setValue("0");
 	  Assert.assertEquals(slider.getValue(), "0");
-	  slider.setValue(100);
+	  slider.setValue("100");
 	  Assert.assertEquals(slider.getValue(), "100");
 
   }

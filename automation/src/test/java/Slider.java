@@ -9,8 +9,8 @@ public class Slider {
 		this.driver = driver;
 	}
 
-	public void setValue(int values) {
-		driver.findElement(By.id("sliderValue")).sendKeys("value", String.valueOf(values));
+	public void setValue(String value) {
+		driver.findElement(By.id("sliderValue")).sendKeys(value);
 		
 	}
 

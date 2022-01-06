@@ -11,8 +11,6 @@ public class Hyperlink {
 
 	public void click(String string) {
 		driver.findElement(By.id(string)).click();
-		String linkResponse = "linkResponse";
-		driver.findElement(By.id(linkResponse)).toString();
 	}
 
 }
