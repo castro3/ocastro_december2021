@@ -8,41 +8,25 @@ import framework.TestBase;
 
 public class ControlExtensionsTest extends TestBase{
   @Test
-  public void canCreateRadioButtonExtension() {
-	  final String url = "https://demoqa.com/radio-button";
-	  getDriver().navigate().to(url);
-	  String selection = "";
+  public void canSelectRadioButton() {
 	  RadioButton radioButton = new RadioButton(getDriver());
 	  radioButton.select("Yes");
-	  selection = radioButton.getSelected();
-	  Assert.assertEquals(selection, "Yes");
-	  System.out.println(selection);
-	  
+	  Assert.assertEquals(radioButton.getSelected(), "Yes");
 	  radioButton.select("Impressive");
-	  selection = radioButton.getSelected();
-	  Assert.assertEquals(selection, "Impressive");
-	  System.out.println(selection);
-	  
+	  Assert.assertEquals(radioButton.getSelected(), "Impressive");
 	  radioButton.select("No");
-	  selection = radioButton.getSelected();
-	  Assert.assertEquals(selection, "No");
-	  System.out.println(selection);
-	  
+	  Assert.assertEquals(radioButton.getSelected(), "No");
   }
   
   @Test
-  public void canCreateHyperLink() {
-	  final String url = "https://demoqa.com/links";
-	  getDriver().navigate().to(url);
+  public void canClickHyperLink() {
 	  Hyperlink hyperlink = new Hyperlink(getDriver());
 	  hyperlink.click("created");
 	  Assert.assertEquals(getDriver().findElement(By.id("linkResponse")).getText(), "Link has responded with staus 201 and status text Created");
   }
   
   @Test
-  public void canCreateSlider() {
-	  final String url = "https://demoqa.com/slider";
-	  getDriver().navigate().to(url);
+  public void canSetSlider() {
 	  Slider slider = new Slider(getDriver());
 	  slider.setValue("80");
 	  Assert.assertEquals(slider.getValue(), "80");
@@ -57,14 +41,14 @@ public class ControlExtensionsTest extends TestBase{
   
   @Test
   public void canCreateOldStyleDropDownList() {
-	  final String url = "https://demoqa.com/select-menu";
-	  getDriver().navigate().to(url);
 	  DropdownList ddl = new DropdownList(getDriver());
 	  ddl.setValue("Indigo");
+	  Assert.assertEquals(ddl.getValue(), "Indigo");
 	  String[] options = ddl.getOptions();
-	  for(int i=0; i < options.length; i++) {
-		  Assert.assertEquals(options[i], ddl.getValue());
-	  }
+	  for (int i = 0; i < options.length; i++) {
+		ddl.setValue(options[i]);
+		Assert.assertEquals(options[i], ddl.getValue());
+	}
   }
   
   @BeforeMethod
