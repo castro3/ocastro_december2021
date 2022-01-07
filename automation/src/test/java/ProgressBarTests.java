@@ -1,4 +1,9 @@
-package modaldialog.ProgressBarTest;
+
+import org.testng.annotations.Test;
+
+import modaldialog.ProgressBarTest.ProgressBarStart;
+
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;
@@ -17,7 +22,7 @@ public class ProgressBarTests {
 	progressBarStart.start();  
 	progressBarStart.reset();
 	
-	Assert.assertEquals(driver.findElement(By.xpath(".//div[@role='progressbar']")).getText(),"0%");
+	AssertJUnit.assertEquals(driver.findElement(By.xpath(".//div[@role='progressbar']")).getText(),"0%");
   }
   @BeforeMethod
   public void setup() {
@@ -37,6 +42,6 @@ public class ProgressBarTests {
 
 		  driver.navigate().to(url);
 		  String currentURL = driver.getCurrentUrl();
-		  Assert.assertEquals(url, currentURL);
+		  AssertJUnit.assertEquals(url, currentURL);
 	  }  
 }
