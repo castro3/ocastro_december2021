@@ -1,5 +1,4 @@
-package modaldialog;
-
+package modaldialog.ProgressBarTest;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;
