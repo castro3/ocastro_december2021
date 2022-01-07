@@ -1,7 +1,6 @@
 package modaldialog;
 import org.testng.annotations.Test;
 
-import framework.ModalDialog;
 import framework.TestBase;
 
 import org.testng.annotations.BeforeMethod;
