@@ -1,5 +1,7 @@
 package modaldialog;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ModalPage {
 	
@@ -10,5 +12,8 @@ public class ModalPage {
 		this.driver = driver;
 		driver.navigate().to(url);
 	}
-
+	
+	public WebElement findElement(String id) {
+		return this.driver.findElement(By.id(id));
+	}
 }

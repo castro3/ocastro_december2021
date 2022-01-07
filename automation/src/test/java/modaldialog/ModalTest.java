@@ -15,8 +15,8 @@ public class ModalTest extends TestBase {
 			
   @Test
   public void canClickSmallModal() {
-	  WebElement element = this.getDriver().findElement(By.id("showSmallModal"));
-	  ModalDialog smallModal = new ModalDialog(element);
+	  String smallElement = "showSmallModal";
+	  ModalDialog smallModal = new ModalDialog(page.findElement(smallElement));
 	  smallModal.click();
 	  Assert.assertEquals(smallModal.getModalBody(), "This is a small modal. It has very less content");
 	  smallModal.close();
@@ -24,8 +24,8 @@ public class ModalTest extends TestBase {
   
   @Test
   public void canClickLargeModal() {
-	  WebElement element = this.getDriver().findElement(By.id("showLargeModal"));
-	  ModalDialog largeModal = new ModalDialog(element);
+	  String largeElement = "showLargeModal";
+	  ModalDialog largeModal = new ModalDialog(page.findElement(largeElement));
 	  largeModal.click();
 	  Assert.assertEquals(largeModal.getModalBody(), "Lorem Ipsum is simply dummy text of the printing "
 	  		+ "and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever "
