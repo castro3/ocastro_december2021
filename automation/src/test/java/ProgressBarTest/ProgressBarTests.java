@@ -2,8 +2,6 @@ package ProgressBarTest;
 
 import org.testng.annotations.Test;
 
-import modaldialog.ProgressBarTest.ProgressBarPage;
-
 import org.testng.annotations.BeforeMethod;
 
 import java.nio.file.Path;

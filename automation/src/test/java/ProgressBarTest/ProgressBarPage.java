@@ -1,4 +1,4 @@
-package modaldialog.ProgressBarTest;
+package ProgressBarTest;
 
 import java.util.concurrent.TimeUnit;
 
