@@ -1,3 +1,5 @@
+package ProgressBarTest;
+
 import org.testng.annotations.Test;
 
 import modaldialog.ProgressBarTest.ProgressBarPage;
