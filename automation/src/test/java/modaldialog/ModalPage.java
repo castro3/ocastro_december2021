@@ -16,4 +16,12 @@ public class ModalPage {
 	public WebElement findElement(String id) {
 		return this.driver.findElement(By.id(id));
 	}
+
+	public WebElement findSmallElement() {
+		return this.driver.findElement(By.id("showSmallModal"));
+	}
+
+	public WebElement findLargeElement() {
+		return this.driver.findElement(By.id("showLargeModal"));
+	}
 }

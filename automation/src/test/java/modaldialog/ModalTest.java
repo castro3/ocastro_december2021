@@ -15,26 +15,26 @@ public class ModalTest extends TestBase {
 			
   @Test
   public void canClickSmallModal() {
-	  String smallElement = "showSmallModal";
-	  ModalDialog smallModal = new ModalDialog(page.findElement(smallElement));
+	  ModalDialog smallModal = new ModalDialog(page.findSmallElement());
 	  smallModal.click();
-	  Assert.assertEquals(smallModal.getModalBody(), "This is a small modal. It has very less content");
+	  String textFromModal = smallModal.getModalBody();
 	  smallModal.close();
+	  Assert.assertEquals(textFromModal, "This is a small modal. It has very less content");
   }
   
   @Test
   public void canClickLargeModal() {
-	  String largeElement = "showLargeModal";
-	  ModalDialog largeModal = new ModalDialog(page.findElement(largeElement));
+	  ModalDialog largeModal = new ModalDialog(page.findLargeElement());
 	  largeModal.click();
-	  Assert.assertEquals(largeModal.getModalBody(), "Lorem Ipsum is simply dummy text of the printing "
+	  String textFromModal = largeModal.getModalBody();
+	  largeModal.close();
+	  Assert.assertEquals(textFromModal, "Lorem Ipsum is simply dummy text of the printing "
 	  		+ "and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever "
 	  		+ "since the 1500s, when an unknown printer took a galley of type and scrambled it to make "
 	  		+ "a type specimen book. It has survived not only five centuries, but also the leap into "
 	  		+ "electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s "
 	  		+ "with the release of Letraset sheets containing Lorem Ipsum passages, and more recently "
 	  		+ "with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
-	  largeModal.close();
   }
   
   @BeforeMethod
