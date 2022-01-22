@@ -8,6 +8,6 @@ public class DriverManagerFactory {
 		}else if(browserType.equals("edge")) {
 			return new EdgeDriverManager();
 		}else
-			return null;
+			throw new NullPointerException("BrowserType not found!");
 	}
 }
